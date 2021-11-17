@@ -182,7 +182,8 @@ body {
 }
 
 .modal-details-tomorrow {
-  transform: translate(150vw, -50%);
+  overflow: hidden;
+  transform: translate(-150vw, -50%);
 }
 
 .modal-details-yesterday {
