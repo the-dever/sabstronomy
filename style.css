@@ -1,0 +1,597 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  height: auto;
+  max-width: 192rem;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: #d4ecdd;
+  line-height: 1.9;
+  background: linear-gradient(to bottom right, #152d35, #112031);
+  overflow: hidden !important;
+  margin: 0 auto;
+}
+
+.overlay-active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  z-index: 20;
+  transition: all 0.3s;
+}
+
+.cross {
+  z-index: 30;
+  position: absolute;
+  right: 4rem;
+  top: 4rem;
+  cursor: pointer;
+  color: #d4ecdd;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.cross-active {
+  opacity: 1;
+}
+
+/* ------------------------------------------------------------------- MODAL ----------------------------------------------------------- */
+
+.modal-info {
+  height: 40rem;
+  width: 70rem;
+  padding: 2rem 5rem;
+  position: absolute;
+  z-index: 40;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -150vh);
+  background: linear-gradient(to bottom right, #334756, #2c394b);
+  border-radius: 1rem;
+  box-shadow: 4rem 6rem 6rem rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  transition: all 0.2s;
+}
+
+.modal-info > img {
+  width: 36rem;
+}
+
+.modal-info > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.modal-info > div > a,
+.modal-info > div > a:visited,
+.modal-info > p > a,
+.modal-info > p > a:visited {
+  position: relative;
+  text-decoration: none;
+  color: #d4ecdd;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.modal-info > div > a:hover,
+.modal-info > div > a:active,
+.modal-info > p > a:hover,
+.modal-info > p > a:active {
+  color: #345b63;
+}
+
+.modal-info > div > a::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #d4ecdd;
+  position: absolute;
+  z-index: -1;
+  bottom: 100%;
+  transition: all 0.2s;
+}
+
+.modal-info > div > a:hover:before {
+  bottom: 0;
+}
+
+.modal-zodiac {
+  overflow-x: hidden;
+  padding: 1rem;
+  height: 80vh;
+  width: 74rem;
+  background-color: #33333388;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -150vh);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 40;
+  transition: all 0.2s;
+}
+
+.modal-zodiac > button {
+  cursor: pointer;
+  overflow: hidden;
+  letter-spacing: 0.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #152d35;
+  width: 30%;
+  background-color: #cccccc46;
+  transition: all 0.2s;
+}
+
+.modal-zodiac > button:hover,
+.modal-zodiac > button:active,
+.modal-zodiac > button:focus {
+  background-color: #ccc;
+  color: #152d35;
+}
+
+.modal-details {
+  position: absolute;
+  overflow: hidden;
+  z-index: 25;
+  top: 50%;
+  left: 50%;
+  height: auto;
+  width: 70rem;
+  padding: 3rem 5rem;
+  border-radius: 1rem;
+  box-shadow: 4rem 6rem 6rem rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.modal-details-today {
+  transform: translate(-50%, -150vh);
+}
+
+.modal-details-tomorrow {
+  transform: translate(150vw, -50%);
+}
+
+.modal-details-yesterday {
+  transform: translate(-150vw, -50%);
+}
+
+.modal-details > * {
+  margin-bottom: 1rem;
+}
+
+.modal-details > figure {
+  width: 50rem;
+  height: 30rem;
+}
+
+.modal-details > figure > img {
+  border-radius: 1rem;
+  box-shadow: 4rem 6rem 6rem rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: sepia(30%);
+}
+
+.date-range {
+  font-size: 3rem;
+}
+
+.modal-details > div:first-of-type {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 2rem;
+  border-bottom: 0.1rem solid;
+}
+
+.modal-details > div > p {
+  width: 38%;
+}
+
+.modal-details > div:last-of-type {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.modal-details > div:last-of-type > button {
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #152d35;
+  width: 40%;
+  transition: all 0.2s;
+}
+
+.modal-details > div:last-of-type > button:hover {
+  background-color: #152d35;
+  color: #d4ecdd;
+  outline: 0.1rem solid #d4ecdd;
+  letter-spacing: 0.5rem;
+}
+
+.modal-details > div:last-of-type > button > i {
+  display: none;
+}
+
+.modal-details > div:last-of-type > button:hover > i {
+  display: inline;
+}
+
+.modal-active {
+  transform: translate(-50%, -50%);
+}
+
+/* ------------------------------------------------------------------- SKY ----------------------------------------------------------- */
+
+.space {
+  /* height: 100rem; */
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.stars-container {
+  width: 100%;
+  position: relative;
+}
+
+.stars {
+  height: 0.7rem;
+  width: 0.7rem;
+  background-color: #fff8cd;
+  border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+  box-shadow: 0 0 0.2rem 0.1rem hsl(0deg 0% 80% / 80%), 0 0 0.3rem 0.2rem #ccc,
+    0 0 0.9rem 0.3rem #ccc;
+  position: absolute;
+  animation: float infinite;
+}
+
+.zodiac-star {
+  cursor: pointer;
+  align-self: center;
+  color: #fff8cd8f;
+  position: relative;
+  position: absolute;
+  animation: zodiacFloat 50s infinite linear;
+  transition: all 0.2s;
+}
+
+.zodiac-star:hover {
+  color: #fff8cd;
+}
+
+.moon {
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  top: 5%;
+  right: 5%;
+  height: 15rem;
+  width: 15rem;
+  background-color: #d4ecdd;
+  border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+  box-shadow: 0 0 0.2rem 0.1rem hsl(0deg 0% 80% / 80%), 0 0 0.3rem 0.2rem #ccc,
+    0 0 0.9rem 0.3rem #ccc;
+  display: flex;
+  justify-content: center;
+}
+
+.moon-eye {
+  margin-top: 3rem;
+  display: block;
+  height: 4rem;
+  width: 3rem;
+  background-color: #334756;
+  border-radius: 80% 30% 30% 80% / 70% 40% 70% 40%;
+  position: relative;
+  animation: eyeBlink 5s infinite;
+}
+
+.moon-eye::after {
+  content: "";
+  display: block;
+  height: 0.8rem;
+  width: 0.8rem;
+  background-color: #d4ecdd;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s;
+}
+
+.moon-eye:first-of-type {
+  margin-right: 1rem;
+}
+
+.moon:hover > .moon-eye::after {
+  transform: translate(0, 50%);
+}
+
+/* ------------------------------------------------------------------- GROUND ----------------------------------------------------------- */
+
+.wind-container {
+  position: absolute;
+  bottom: 15rem;
+  height: auto;
+  width: 100%;
+  display: flex;
+  animation: waveMove 15s;
+  transform: translateX(-150vw);
+}
+
+.wind {
+  display: block;
+  height: 0.1rem;
+  width: 10rem;
+  box-shadow: 1rem 1rem 0.5rem #777;
+  animation: wave 2s ease infinite;
+  position: relative;
+}
+
+.ground {
+  width: 100%;
+  height: 8rem;
+  align-self: flex-end;
+  background-color: #4a3933;
+  border-radius: 1.5rem 1.5rem 0 0;
+  position: relative;
+}
+
+.ground:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 100% 0 0;
+  width: 70rem;
+  height: 8rem;
+  background-color: #4a3933;
+  right: 15%;
+  top: -3.5rem;
+}
+
+.ground > svg {
+  width: 14rem;
+  height: 14rem;
+  position: absolute;
+  top: -165%;
+  left: 3%;
+}
+
+/* ------------------------------------------------------------------- ANIMATIONS ----------------------------------------------------------- */
+
+@keyframes eyeBlink {
+  0%,
+  30%,
+  40%,
+  100% {
+    transform: scale(1);
+  }
+  33%,
+  37% {
+    transform: scale(1, 0);
+  }
+  0%,
+  100% {
+    transform: translate3d(-7px, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes float {
+  0% {
+    margin: 0px;
+  }
+  35% {
+    margin-top: -0.75rem;
+    margin-left: -0.45rem;
+  }
+  70% {
+    margin-top: 0.75rem;
+    margin-left: 0.45rem;
+  }
+  100% {
+    margin: 0px;
+  }
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+  40%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -3rem);
+  }
+  0% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes waveMove {
+  0% {
+    transform: translateX(-150vw);
+  }
+  100% {
+    transform: translateX(150vw);
+  }
+}
+
+@keyframes zodiacFloat {
+  0%,
+  100% {
+    right: 15%;
+    transform: rotateY(180deg) rotate(20deg);
+    top: 5rem;
+  }
+  1% {
+    transform: rotateY(0deg) rotate(20deg);
+  }
+  25% {
+    top: 8rem;
+  }
+  49% {
+    transform: rotateY(0deg) rotate(20deg);
+  }
+  50% {
+    right: 85%;
+    top: 5rem;
+    transform: rotateY(180deg) rotate(20deg);
+  }
+  75% {
+    top: 8rem;
+  }
+}
+
+/* ------------------------------------------------------------------- MEDIA QUERIES ----------------------------------------------------------- */
+
+@media only screen and (max-width: 46em) {
+  html {
+    font-size: 50%;
+  }
+
+  .cross {
+    right: 2rem;
+    top: 2rem;
+  }
+
+  .modal-info {
+    height: 30rem;
+    width: 39rem;
+    padding: 1rem;
+  }
+
+  .modal-info > img {
+    width: 30rem;
+  }
+
+  .modal-info > p {
+    font-size: 1.5rem;
+  }
+
+  .modal-zodiac {
+    height: 60rem;
+    width: 39rem;
+  }
+
+  .modal-zodiac > button {
+    letter-spacing: 0rem;
+    font-size: 1.3rem;
+    width: 31%;
+  }
+
+  .modal-details {
+    width: 39rem;
+    padding: 2rem;
+  }
+
+  .modal-details > * {
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-details > figure {
+    width: 35rem;
+    height: 25rem;
+  }
+
+  .modal-details > div > p {
+    width: 45%;
+    font-size: 1.3rem;
+  }
+
+  .modal-details {
+    font-size: 1.4rem;
+  }
+
+  .modal-details > div:last-of-type > button {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    width: 45%;
+  }
+
+  .modal-details > div:last-of-type > button:hover {
+    letter-spacing: 0.3rem;
+  }
+}
+
+@media only screen and (max-width: 20em) {
+  html {
+    font-size: 30%;
+  }
+}
+
+@media only screen and (max-width: 12.5em) {
+  html {
+    font-size: 20%;
+  }
+}
+
+@media only screen and (max-width: 8.2em) {
+  html {
+    font-size: 10%;
+  }
+}
